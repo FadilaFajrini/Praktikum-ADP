@@ -1,0 +1,31 @@
+program menghitung_volume_dan_luas_permukaan_bola;
+uses crt;
+const
+        phi= 3.14;
+var
+        NAMA: string;
+        NO_BP: string[10];
+        r, Lp, v: real;
+begin
+clrscr;
+                write('NAMA :');
+                readln(NAMA);
+                write('NO_BP:');
+                readln(NO_BP);
+                write('');
+                readln();
+                writeln('==================================================');
+                writeln('PROGRAM MENGHITUNG VOLUME DAN LUAS PERMUKAAN BOLA');
+                writeln('==================================================');
+                write('');
+                readln();
+
+        write('r =');
+        readln(r);
+        Lp:= 4*phi*r*r;
+        writeln('Luas Permukaan Bola :',Lp);
+        V:= 4/3*phi*r*r*r;
+        writeln('Volume Bola :',V);
+        readln();
+end.
+
