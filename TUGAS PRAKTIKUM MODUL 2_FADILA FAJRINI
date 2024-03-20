@@ -1,0 +1,164 @@
+A. PASCAL
+
+program pembelian_tiket_pesawat;
+uses crt;
+var
+        kota_wisata: array[1..5] of string = ('JAKARTA','BALI','JOGJAKARTA','SURABAYA','MALANG');
+        kelas_maskapai: array [1..5] of record
+                        jenis:string;
+                        harga: longint;
+                        tiket:integer;
+                        end = (
+                        (jenis: 'EKONOMI'; harga: 1000000),
+                        (jenis: 'EKONOMI PREMIUM'; harga: 1500000),
+                        (jenis: 'BISNIS'; harga: 2000000),
+                        (jenis: 'FIRST CLASS'; harga: 3000000),
+                        (jenis: 'QUIET ZONE'; harga: 3200000)
+                        );
+                        nama, jenis_kelamin, tujuan, kelas_tiket: string;
+                        umur, pilihan_destinasi, jumlah_tiket, diskon: integer;
+                        harga_awal,total_harga: longint;
+
+begin
+        clrscr;
+        writeln('                      ========================');
+        writeln('                              LION AIR        ');
+        writeln('                      PEMESANAN TIKET PESAWAT ');
+        writeln('                      ========================');
+        writeln('');
+        writeln('');
+        writeln('  IKUTI LANGKAH-LANGKAH BERIKUT UNTUK MEMESAN TIKET PESAWAT ANDA:');
+        writeln('');
+        writeln('');
+        writeln('A. Silahkan isi data diri anda');
+        writeln('');
+        write('NAMA :');
+        readln(nama);
+        write('UMUR :');
+        readln(umur);
+        write('JENIS KELAMIN :');
+        readln(jenis_kelamin);
+        writeln('');
+
+        writeln('B. Pilihlah tujuan keberangkatan anda');
+        writeln('');
+        for pilihan_destinasi := 1 to 5 do
+          writeln(pilihan_destinasi,'.', kota_wisata[pilihan_destinasi]);
+        write('Pilih tujuan keberangkatan :');
+        readln(pilihan_destinasi);
+        tujuan := kota_wisata[pilihan_destinasi];
+        writeln('');
+
+        writeln('C. Pilihlah jenis maskapai');
+        writeln('');
+         for pilihan_destinasi := 1 to 5 do
+          writeln(pilihan_destinasi,'.', kelas_maskapai[pilihan_destinasi].jenis, ':harga', kelas_maskapai[pilihan_destinasi].harga);
+        write('Jenis maskapai :');
+        readln(pilihan_destinasi);
+        kelas_tiket := kelas_maskapai[pilihan_destinasi].jenis;
+        writeln('');
+        writeln(' Note : Pemesanan tiket pesawat yang lebih dari 3 tiket akan mendapatkan diskon 25%');
+        writeln('');
+        write('jumlah tiket yang dipesan:');
+        readln(jumlah_tiket);
+        writeln('');
+
+
+        harga_awal:= kelas_maskapai[pilihan_destinasi].harga*jumlah_tiket;
+        if jumlah_tiket > 3 then
+         begin
+          total_harga :=trunc(0.75 *(kelas_maskapai[pilihan_destinasi].harga*jumlah_tiket))
+         end
+        else
+         begin
+          total_harga := kelas_maskapai[pilihan_destinasi].harga*jumlah_tiket
+         end;
+        writeln('Total Harga:',total_harga);
+
+       writeln('');
+       writeln('');
+       writeln('              =====================');
+       writeln('                 STRUK PEMESANAN ');
+       writeln('                    LION AIR     ');
+       writeln('              =====================');
+       writeln('');
+       writeln('');
+       writeln('              NAMA :', nama);
+       writeln('              UMUR :', umur);
+       writeln('              JENIS KELAMIN :',jenis_kelamin);
+       writeln('              TUJUAN KEBERANGKATAN :', tujuan);
+       writeln('              JENIS MASKAPAI :',kelas_tiket);
+       writeln('              TIKET YANG DIPESAN:',jumlah_tiket);
+       writeln('              TOTAL HARGA :',total_harga);
+       writeln('');
+       writeln(' Terimakasih telah memilih LION AIR sebagai teman dalam perjalanan anda');
+
+end.
+
+
+
+
+B. PYTHON
+
+kota_wisata = ['JAKARTA', 'BALI', 'JOGJAKARTA', 'SURABAYA', 'MALANG']
+kelas_maskapai = [
+    {'jenis': 'EKONOMI', 'harga': 1000000},
+    {'jenis': 'EKONOMI PREMIUM', 'harga': 1500000},
+    {'jenis': 'BISNIS', 'harga': 2000000},
+    {'jenis': 'FIRST CLASS', 'harga': 3000000},
+    {'jenis': 'QUIET ZONE', 'harga': 3200000}
+]
+print('========================')
+print('       LION AIR')
+print('PEMESANAN TIKET PESAWAT')
+print('========================')
+print()
+print('IKUTI LANGKAH-LANGKAH BERIKUT UNTUK MEMESAN TIKET PESAWAT ANDA:')
+print('A. Silahkan isi data diri anda')
+nama = input('NAMA : ')
+umur = input('UMUR : ')
+jenis_kelamin = input('JENIS KELAMIN : ')
+print()
+
+print('B. Pilihlah tujuan keberangkatan anda')
+for i, kota in enumerate(kota_wisata,1):
+        print(f'{i}. {kota}')
+pilihan_destinasi = int(input('Pilih tujuan keberangkatan : '))
+tujuan = kota_wisata[pilihan_destinasi]
+print()
+
+print('C. Pilihlah jenis maskapai')
+for i, maskapai in enumerate(kelas_maskapai,1):
+        print(f'{i}. {maskapai["jenis"]}: harga {maskapai["harga"]}')
+pilihan_maskapai = int(input('Jenis maskapai : '))
+kelas_tiket = kelas_maskapai[pilihan_maskapai-1]['jenis']
+print()
+print('Note : Pemesanan tiket pesawat yang lebih dari 3 tiket akan mendapatkan diskon 25%')
+print()
+jumlah_tiket = int(input('Jumlah kursi yang dipesan: '))
+print()
+
+harga_awal = kelas_maskapai[pilihan_maskapai-1]['harga'] * jumlah_tiket
+if jumlah_tiket > 3: 
+     total_harga = int(0.75 * harga_awal)
+else:
+    total_harga = harga_awal 
+print('TOTAL HARGA :', total_harga)
+print()
+print('=====================')
+print('   STRUK PEMESANAN')
+print('      LION AIR')
+print('=====================')
+print('NAMA :', nama)
+print('UMUR :', umur)
+print('JENIS KELAMIN :', jenis_kelamin)
+print('TUJUAN KEBERANGKATAN :',tujuan)
+print('JENIS MASKAPAI :', kelas_tiket)
+print('TIKET YANG DIPESAN:',jumlah_tiket)
+print('TOTAL HARGA :',total_harga)
+print()
+print('Terimakasih telah memilih LION AIR sebagai teman dalam perjalanan anda')
+print()
+
+
+
