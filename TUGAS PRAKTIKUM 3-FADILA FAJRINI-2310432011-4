@@ -1,0 +1,34 @@
+a= str(input("NAMA :"))
+b= int(input("NIM :"))
+c= int(input("SHIFT :"))
+print("")
+print("     ===============")
+print(str("     PIRAMIDA ABJAD"))
+print("     ===============")
+print("")
+
+def print_piramida_abjad_(angka):
+    if angka < 1 or angka > 26:
+        print("Terjadi Kesalahan harap ulangi kembali")
+        print("Perhatikan bahwa angka yang anda masukkan berada diantara 1-26") 
+        return
+    
+    start_char = 65
+
+    for i in range(1, angka + 1):
+        print(" " * (angka - i), end="")
+        
+        for j in range(0, i):
+            print(chr(start_char + j), end="")
+        
+        for j in range(i - 2, -1, -1):
+            print(chr(start_char + j), end="")
+        print()
+
+num = int(input("Masukkan jumlah huruf pada piramida (1-26): "))
+print("")
+print_piramida_abjad_(num)
+
+print("")
+print("     #SELESAI#")
+print("")
