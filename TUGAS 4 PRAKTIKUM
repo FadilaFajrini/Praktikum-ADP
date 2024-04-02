@@ -1,0 +1,24 @@
+print ("--------------------------------------------------")
+print ("| PROGRAM PERULANGAN DAN PENGKONDISIAN BERSARANG |")
+print ("--------------------------------------------------")
+print ("          ~Untuk kelipatan 3 dan 5~")
+print()
+
+i = 1
+count = 0
+
+for i in range (i,101) :
+	if ( i%3 == 0 ) :
+		count += 1
+		print("DOR", end = " ")
+	elif ( i % 5 == 0 ) :
+		count += 1
+		print("DOR", end = " ")
+	else:
+		print(i, end = " ")
+	if ( i%10 == 0 ) :
+		print()
+	
+print ()		
+print("Total DOR yang muncul sebanyak :", count)
+		
