@@ -4,30 +4,19 @@ print("NIM       : 2310432011")
 print("TUGAS ADP : ARRAY 2D")
 print()
 barang = [
-    ["| NAMA BARANG ", "Gula", "Teh", "Kopi", "Beras", "Garam", "Minyak", "Mie", "Gas", "Shampo", "Sabun","Telur"],
-    ["| HARGA       ", 5000, 3000, 3500, 17000, 5000, 9000, 4000, 25000, 10000, 11000, 3000],
-    ["| STOK        ", 30, 40, 30, 30, 20, 40, 40, 15, 25, 20, 60],
+    ["Gula",5000, 20],
+    ["Teh", 5000, 30],
+    ["Beras", 17000, 20],
+    ["Minyak", 18000, 15],    
+    ["Telor", 3000, 90],
+    ["Garam", 4000, 15],
+    ["Gas", 25000, 15]    
 ]
 
-print("---------------------------------------------------------------------------------------------------------------------------------------------------")
-for i in range(len(barang[0])):
-    print(f"{barang[0][i]:<10}|", end= " ")
-print()
-print("---------------------------------------------------------------------------------------------------------------------------------------------------")
-for i in range(len(barang[1])):
-    print(f"{barang[1][i]:<10}|", end= " ")
-print()
-print("---------------------------------------------------------------------------------------------------------------------------------------------------")
-for i in range(len(barang[2])):
-    print(f"{barang[2][i]:<10}|", end= " ")
-print()
-print("---------------------------------------------------------------------------------------------------------------------------------------------------")
-
 y = []
-for i in range(11):
-    keuntungan = barang[1][i+1] * barang[2][i+1]
+for i in (barang):
+    keuntungan = i[1] * i[2]
     y.append(keuntungan)
-
 
 total_keuntungan = 0
 keuntungan_terbesar = y[0]
@@ -40,21 +29,29 @@ for i in range (len(y)):
     total_keuntungan += keuntungan
     if keuntungan > keuntungan_terbesar:
         keuntungan_terbesar = keuntungan
-        barang_max = i
+        barang_max = barang[i][0]
     if keuntungan < keuntungan_terkecil:
         keuntungan_terkecil = keuntungan
-        barang_min =i
-    
+        barang_min = barang[i][0]
+
+print("--------------------------------------")
+print("| NAMA BARANG | HARGA      | STOK    |")
+print("--------------------------------------")
+
+for item in barang:
+    print(f"| {item[0]:<11} | {item[1]:<10} | {item[2]:<7} |")
+print("--------------------------------------")
+
 
 print()
 print("a. Keuntungan")
 print("   Total Keuntungan:Rp ", total_keuntungan)
 print()
 print("b. Keuntungan Terbesar")
-print("   Barang dengan keuntungan terbesar adalah ", barang[0][barang_max+1])
+print("   Barang dengan keuntungan terbesar adalah ", barang_max)
 print("   Besar Keuntungan yang diperoleh :Rp ", keuntungan_terbesar)
 print()
 print("c. Keuntungan Terkecil")
-print("   Barang dengan Keuntungan Terkecil adalah ", barang[0][barang_min+1])
+print("   Barang dengan Keuntungan Terkecil adalah ", barang_min)
 print("   Besar Keuntungan yang diperoleh :Rp ", keuntungan_terkecil)
 print()
