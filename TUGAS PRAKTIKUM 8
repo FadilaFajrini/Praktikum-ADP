@@ -1,4 +1,4 @@
-print()
+ print()
 print()
 BIODATA = {
     "NAMA" : "FADILA FAJRINI",
@@ -19,20 +19,9 @@ def hapus_transaksi(tanggal):
         lines = file.readlines()
     with open("keuangan.txt", "w") as file:
         for line in lines:
-            if line.split(",")[0] != tanggal:
+            if line.split("|")[0] != tanggal:
                 file.write(line)
     print("Transaksi Telah Dihapus.")
-
-def edit_transaksi(tanggal, jumlah, keterangan, tipe_transaksi):
-    with open("keuangan.txt", "r") as file:
-        lines = file.readlines()
-    with open("keuangan.txt", "w") as file:
-        for line in lines:
-            if line.split(",")[0] == tanggal:
-                file.write(tanggal, jumlah, keterangan, tipe_transaksi)
-            else:
-                file.write(line)
-    print("Transaksi telah di ubah.")
 
 def tampilkan_semua_transaksi():
     with open("keuangan.txt", "r") as file:
@@ -45,33 +34,28 @@ def tampilkan_semua_transaksi():
     else:
         print("Transaksi Kosong.")
 
-print("\nMenu:")
-print("1. Tambah Transaksi")
-print("2. Hapus Transaksi")
-print("3. Edit Transaksi")
-print("4. Tampilkan Semua Transaksi")
-print("5. Keluar")
+while True:
+    print("\nMenu:")
+    print("1. Tambah Transaksi")
+    print("2. Hapus Transaksi")
+    print("3. Tampilkan Semua Transaksi")
+    print("4. Keluar")
 
-pilihan = input("Pilih menu (1/2/3/4/5): ")
+    pilihan = input("Pilih menu (1/2/3/4/5): ")
 
-if pilihan == "1":
-    tanggal = input("Masukkan tanggal transaksi: ")
-    jumlah = input("Masukkan jumlah transaksi yang ingin dilakukan: ")
-    keterangan = input("Masukkan keterangan dari transaksi yang dilakukan: ")
-    tipe_transaksi= input("Masukkan tipe transaksi(pemasukan/pengeluaran): ")
-    tambah_transaksi (tanggal, jumlah, keterangan, tipe_transaksi)
-elif pilihan == "2":
-    nama = input("Masukkan tanggal transaksi yang akan dihapus: ")
-    hapus_transaksi(f"{nama}")
-elif pilihan == "3":
-    tanggal = input("Masukkan tanggal transaksi yang akan diubah: ")
-    jumlah = input("Masukkan jumlah transaksi yang baru: ")
-    keterangan = input("Masukkan keterangan dari transaksi yang baru: ")
-    tipe_transaksi= input("Masukkan tipe transaksi (pemasukan/pengeluaran) yang baru: ")
-    edit_transaksi(tanggal, jumlah, keterangan, tipe_transaksi)
-elif pilihan == "4":
-    tampilkan_semua_transaksi()
-elif pilihan == "5":
-    print("Terima kasih telah menggunakan program ini.")
-else:
-    print("Pilihan tidak valid. Silakan pilih menu yang tersedia.")
+    if pilihan == "1":
+        tanggal = input("Masukkan tanggal transaksi: ")
+        jumlah = input("Masukkan jumlah transaksi yang ingin dilakukan: ")
+        keterangan = input("Masukkan keterangan dari transaksi yang dilakukan: ")
+        tipe_transaksi = input("Masukkan tipe transaksi (pemasukan/pengeluaran): ")
+        tambah_transaksi(tanggal, jumlah, keterangan, tipe_transaksi)
+    elif pilihan == "2":
+        tanggal = input("Masukkan tanggal transaksi yang akan dihapus: ")
+        hapus_transaksi(f"| Tanggal : {tanggal:<5} |")
+    elif pilihan == "3":
+        tampilkan_semua_transaksi()
+    elif pilihan == "4":
+        print("Terima kasih telah menggunakan program ini.")
+        break
+    else:
+        print("Pilihan tidak valid. Silakan pilih menu yang tersedia.")
