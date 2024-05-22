@@ -1,4 +1,4 @@
- print()
+print()
 print()
 BIODATA = {
     "NAMA" : "FADILA FAJRINI",
@@ -15,13 +15,16 @@ def tambah_transaksi(tanggal, jumlah, keterangan, tipe_transaksi):
     print("Transaksi Telah Ditambahkan.")
 
 def hapus_transaksi(tanggal):
+    tanggal = input("Maasukkan tanggal transaksi yang akan di hapus: ")
     with open("keuangan.txt", "r") as file:
-        lines = file.readlines()
+        lines = file.readlineps()
     with open("keuangan.txt", "w") as file:
         for line in lines:
-            if line.split("|")[0] != tanggal:
+            if line.split("|")[0] == tanggal:
+                del lines[tanggal]
+                print("Transaksi telah dihapus")
+            else:
                 file.write(line)
-    print("Transaksi Telah Dihapus.")
 
 def tampilkan_semua_transaksi():
     with open("keuangan.txt", "r") as file:
@@ -30,7 +33,7 @@ def tampilkan_semua_transaksi():
         print("Data Transaksi:")
         for data in transaksi:
             print("--------------------------------------------------------------------------------------------------------------")
-            print(data.strip())
+            print(data)
     else:
         print("Transaksi Kosong.")
 
@@ -50,7 +53,6 @@ while True:
         tipe_transaksi = input("Masukkan tipe transaksi (pemasukan/pengeluaran): ")
         tambah_transaksi(tanggal, jumlah, keterangan, tipe_transaksi)
     elif pilihan == "2":
-        tanggal = input("Masukkan tanggal transaksi yang akan dihapus: ")
         hapus_transaksi(f"| Tanggal : {tanggal:<5} |")
     elif pilihan == "3":
         tampilkan_semua_transaksi()
