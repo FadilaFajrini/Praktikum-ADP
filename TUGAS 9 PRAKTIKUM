@@ -1,0 +1,46 @@
+from termcolor import colored, cprint
+
+import os
+import time
+os.system("cls")
+
+nama = "NAMA : FADILA FAJRINI"
+cprint(nama, "light_cyan")
+nim = "NIM : 2310432011"
+cprint(nim, "light_cyan")
+print()
+print()
+
+def lilin():
+    api= ("           * * *")
+    cprint(api, "red")
+    lilin= ("           | | |")
+    cprint(lilin, "white")
+lilin()
+def kue ():
+    for i in range (1):
+        print(" "*9, end=" ")
+        lapisan_1 = ("."*8)
+        cprint(lapisan_1, "black", "on_blue")
+        print(" "*7, end= " ")
+        lapisan_2 =("."*12)
+        cprint (lapisan_2, "black", "on_light_blue")
+        print(" "*5, end=" ")
+        lapisan_3 = ("."*16)
+        cprint(lapisan_3, "black", "on_blue") 
+        print(" "*3, end=" ")
+        lapisan_4 = ("."*20)
+        cprint(lapisan_4, "black", "on_light_blue")
+        print(" "*1, end=" ")
+        lapisan_5 = ("."*24)
+        cprint(lapisan_5, "black", "on_blue")
+        print()
+        time.sleep(1)
+        print(" "*6, end= " ")
+        kata= ("HAPPY BIRTHDAY!!")
+        cprint(kata, "white")
+        print()
+        print()
+kue()
+
+    
